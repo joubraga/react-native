@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text> Famoso Hello World !!! </Text>
-      </View>
-    );
-  }
+class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { msg: 'Hello World' }
+    }
+
+    componentDidMount() {
+        this.setState({
+            msg: 'Testando set State agora'
+        })
+    }
+
+    render() {
+        let { msg } = this.state
+        return (
+            <View style={styles.container}>
+                <Text> Jonathan Braga </Text>
+                <Text>
+                    { msg }
+                </Text>
+            </View>
+        );
+    }
 }
 
+export default App
 const styles = StyleSheet.create({
   container: {
     flex: 1,
